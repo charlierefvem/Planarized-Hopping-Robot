@@ -4,7 +4,7 @@ shank_handle = 2.010001220703125e+02;
 thigh_handle = 2.130001220703125e+02;
 pulley_handle = 2.960001220703125e+02;
 knee_motor_handle = 2.630001220703125e+02;
-knee_plate_handle = gcbh;
+knee_plate_handle = 2.650001220703125e+02;
 hip_motor_handle = 1.350001220703125e+02;
 hip_plate_handle = 1.370001220703125e+02;
 
