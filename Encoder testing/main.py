@@ -50,16 +50,15 @@ if __name__ == '__main__':
 
     # Initialize everything
     # Set up encoder object
-    encoder_1 = Encoder(Pin.cpu.C6, Pin.cpu.C7, 8, 360)
+    encoder_1 = Encoder(Pin.cpu.B4, Pin.cpu.B5, 3, 10000)
 
     # Set up CAN pins
     RxPin = Pin(Pin.cpu.B8, mode = Pin.AF_PP, alt = Pin.AF9_CAN1)
     TxPin = Pin(Pin.cpu.B9, mode = Pin.AF_PP, alt = Pin.AF9_CAN1)
 
     # Set up CAN communication object
-    can = CAN(1, CAN.NORMAL, baudrate=1_000_000, sjw = 1, bs1 = 12, bs2 = 2, auto_restart = True)
-    #can = CAN(1, CAN.NORMAL, baudrate=1_000_000, sjw = 1, auto_restart = True)
-    can.setfilter(0, CAN.LIST16, 0, (1, 2, 3, 4))  # set a filter to receive messages with id = 1, 2, 3, and 4
+    can = CAN(1, CAN.NORMAL, baudrate=1_000_000, sjw = 1, bs1 = 12, bs2 = 2, auto_restart = True) # Make CAN object
+    can.setfilter(0, CAN.LIST16, 0, (1, 2, 3, 4))  # Set a filter to receive messages with id = 1, 2, 3, and 4
     can.rxcallback(0, cb0) # Set up interrupt when a message comes in
 
     # Set up dataBytes object
@@ -105,8 +104,6 @@ if __name__ == '__main__':
                         if charIn in {'p','P'}:
                             print(f'The current position is: {positionDec}')
                             print(f'The current velocity is: {velocityDec:.2f}')
-                            print(f'{dataBytes}')
-                            print(f'Messages sent: {idx}')
                             print()
                         
                         elif charIn in {'v','V'}:

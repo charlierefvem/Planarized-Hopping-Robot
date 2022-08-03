@@ -138,7 +138,6 @@ class Encoder:
             @return     Position value of the encoder.
         '''
         return self.position
-        #   *2*math.pi/(4*self._CPR)
     
     def zero(self):
         '''!@brief      Sets the encoder position to zero.
@@ -154,19 +153,23 @@ class Encoder:
                         send out the last change in position value in ticks.
             @return     Last change in position of the encoder.
         '''
-        return (sum(self._deltaList)/sum(self._timeList))*2*math.pi/(4*self._CPR)
-        #self.delta*2*math.pi/(4*self._CPR*self._tdiff)
+        return sum(self._deltaList)/sum(self._timeList)
 
 if __name__ == '__main__':
     # Sets up an encoder hooked up to pins B6 and B7 and calls for it to update
     # and return its position every second.
-    _encoder_1 = Encoder(pyb.Pin.cpu.B6, pyb.Pin.cpu.B7, 4)
-    
+    _encoder_1 = Encoder(pyb.Pin.cpu.B4, pyb.Pin.cpu.B5, 3, 10000)
+    idx = 0
     while True:
         try:
             _encoder_1.update()
-            _encoder_1.get_position()
-            time.sleep(1)
+            if idx == 100:
+                print(f'{_encoder_1.get_position()}')
+                print(f'{_encoder_1.get_delta():.2f}')
+                idx = 0
+            else:
+                idx += 1
+
         except KeyboardInterrupt:
             break
             
