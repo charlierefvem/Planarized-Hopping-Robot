@@ -86,8 +86,8 @@ class Encoder:
         self._tlast = time.ticks_us()
 
         self._CPR = CPR
-        self._timeList = [0]*10
-        self._deltaList = [0]*10
+        self._timeList = [0]*5
+        self._deltaList = [0]*5
 
         
     def update(self):
@@ -153,7 +153,7 @@ class Encoder:
                         send out the last change in position value in ticks.
             @return     Last change in position of the encoder.
         '''
-        return sum(self._deltaList)/sum(self._timeList)
+        return sum(self._deltaList)/sum(self._timeList)*(2*math.pi)/(4*self._CPR)
 
 if __name__ == '__main__':
     # Sets up an encoder hooked up to pins B6 and B7 and calls for it to update

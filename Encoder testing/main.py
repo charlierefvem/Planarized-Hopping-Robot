@@ -104,6 +104,7 @@ if __name__ == '__main__':
                         if charIn in {'p','P'}:
                             print(f'The current position is: {positionDec}')
                             print(f'The current velocity is: {velocityDec:.2f}')
+                            print(f'# Messages: {idx}')
                             print()
                         
                         elif charIn in {'v','V'}:
