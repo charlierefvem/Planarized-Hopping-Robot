@@ -1,0 +1,125 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   15 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c5_PHRControl"\
+      Description  "StateIsActive"\
+      SFName       "is_active_c5_PHRControl"\
+      Path         "is_active_c5_PHRControl"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "is_c5_PHRControl"\
+      Description  "StateActiveChild"\
+      SFName       "is_c5_PHRControl"\
+      Path         "is_c5_PHRControl"\
+      SrcLocation  ""\
+      IsTestPoint  1\
+    }\
+    ChartData {\
+      Name         "landingTime"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "landingTime"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sf_internal_action_state_placeholder_data"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Flight.sf_internal_action_state_placeholder_data"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sf_internal_action_state_placeholder_data"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Unload.sf_internal_action_state_placeholder_data"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sf_internal_action_state_placeholder_data"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Load.sf_internal_action_state_placeholder_data"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sf_internal_action_state_placeholder_data"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "Idle.sf_internal_action_state_placeholder_data"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sf_internal_action_state_placeholder_data"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "HSW.sf_internal_action_state_placeholder_data"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "sfEvent"\
+      Description  "ActiveChartEvent"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Flight_execBlock"\
+      Description  "Unknown"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Unload_execBlock"\
+      Description  "Unknown"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Load_execBlock"\
+      Description  "Unknown"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "Idle_execBlock"\
+      Description  "Unknown"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "HSW_execBlock"\
+      Description  "Unknown"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "temporalCounter_i1"\
+      Description  "TemporalCounter"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+  }
+  %return ChartDataElements
+%endfunction
